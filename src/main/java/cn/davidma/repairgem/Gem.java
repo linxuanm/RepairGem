@@ -44,21 +44,4 @@ public class Gem extends ItemSimpleFoiled implements Model {
 	public boolean hasEffect(ItemStack stack) {
 		return true;
 	}
-	
-	private void repair(EntityPlayer player) {
-		IItemHandler inv = player.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-		
-		// Scan the player's inventory.
-		for (int i = 0; i < inv.getSlots(); i++) {
-			ItemStack target = inv.getStackInSlot(i);
-			if (!target.isEmpty() && target.getItem().isRepairable()) {
-				
-				// Do not repair if holding & using.
-				if (!(player.isSwingInProgress && target == player.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND))) {
-					
-					// Repair.
-				}
-			}
-		}
-	}
 }

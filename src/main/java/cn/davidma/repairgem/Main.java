@@ -2,6 +2,7 @@ package cn.davidma.repairgem;
 
 import cn.davidma.repairgem.proxy.CommonProxy;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -28,7 +29,7 @@ public class Main {
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
-		
+		MinecraftForge.EVENT_BUS.register(new TickHandler(gem));
 	}
 	
 	@EventHandler
