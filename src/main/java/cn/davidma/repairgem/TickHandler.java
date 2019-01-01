@@ -16,7 +16,7 @@ import net.minecraftforge.items.IItemHandler;
 
 public class TickHandler {
 	
-	final int DELAY = 20;
+	final int DELAY = 40;
 	
 	Item gem;
 	int time;
