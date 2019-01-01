@@ -1,6 +1,7 @@
 package cn.davidma.repairgem;
 
 import cn.davidma.repairgem.proxy.CommonProxy;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -12,6 +13,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid=Reference.MOD_ID, name=Reference.NAME, version=Reference.VERSION)
 public class Main {
 	
+	public static Item gem;
+	
 	@Instance
 	public static Main instance;
 	
@@ -20,7 +23,7 @@ public class Main {
 	
 	@EventHandler
 	public static void PreInit(FMLPreInitializationEvent event) {
-		
+		gem = new Gem("gem");
 	}
 	
 	@EventHandler
