@@ -16,10 +16,15 @@ import net.minecraftforge.items.IItemHandler;
 
 public class TickHandler {
 	
+	final int DELAY = 20;
+	
 	Item gem;
+	int time;
 	
 	public TickHandler(Item inGem) {
 		gem = inGem;
+		time = DELAY;
+		
 	}
 	
 	@SubscribeEvent
@@ -33,7 +38,11 @@ public class TickHandler {
 			
 			// Gem in inventory.
 			if (target.getItem() == gem) {
-				repair(player);
+				time--;
+				if (time <= 0) {
+					time = DELAY;
+					repair(player);
+				}
 			}
 		}			
 	}
@@ -50,7 +59,10 @@ public class TickHandler {
 				if (!(player.isSwingInProgress && target == player.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND))) {
 					
 					// Repair.
-					if (target.isItemDamaged()) target.setItemDamage(target.getItemDamage() - 1);
+					if (target.isItemDamaged()) {
+						target.setItemDamage(target.getItemDamage() - 1);
+						return; // Only repair one item at a time.
+					}
 				}
 			}
 		}
