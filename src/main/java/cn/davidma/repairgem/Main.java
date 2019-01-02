@@ -53,8 +53,8 @@ public class Main {
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
 		MinecraftForge.EVENT_BUS.register(new TickHandler(gem, GemConfig.cooldown));
-		addRecipe(new ItemStack(gem), new Object[] {"CSC", "EME", "CSC", 'C', corner, 'S', side, 'E', edge, 'M', middle});
-		addRecipe(new ItemStack(gem), new Object[] {"CEC", "SMS", "CEC", 'C', corner, 'S', side, 'E', edge, 'M', middle});
+		addRecipe("gem", new ItemStack(gem), new Object[] {"CSC", "EME", "CSC", 'C', corner, 'S', side, 'E', edge, 'M', middle});
+		addRecipe("rotated_gem", new ItemStack(gem), new Object[] {"CEC", "SMS", "CEC", 'C', corner, 'S', side, 'E', edge, 'M', middle});
 	}
 	
 	@EventHandler
@@ -62,9 +62,9 @@ public class Main {
 		
 	}
 	
-	private static void addRecipe (ItemStack output, Object... input) {
+	private static void addRecipe (String inName, ItemStack output, Object... input) {
 		// Right the new recipe loader is ridiculous.
-		ResourceLocation name = new ResourceLocation(Reference.MOD_ID, "gem");
+		ResourceLocation name = new ResourceLocation(Reference.MOD_ID, inName);
 		GameRegistry.addShapedRecipe(name, null, output, input);
 	}
 }
