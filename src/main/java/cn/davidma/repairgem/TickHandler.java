@@ -16,13 +16,14 @@ import net.minecraftforge.items.IItemHandler;
 
 public class TickHandler {
 	
-	final int DELAY = 40;
+	int DELAY = 40;
 	
 	Item gem;
 	int time;
 	
-	public TickHandler(Item inGem) {
+	public TickHandler(Item inGem, int inDelay) {
 		gem = inGem;
+		DELAY = inDelay;
 		time = DELAY;
 		
 	}
