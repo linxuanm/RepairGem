@@ -2,6 +2,7 @@ package cn.davidma.repairgem;
 
 import java.util.ArrayList;
 
+import cn.davidma.repairgem.config.GemConfig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.MobEffects;
@@ -30,22 +31,18 @@ public class TickHandler {
 	
 	@SubscribeEvent
 	public void onPlayerTick(TickEvent.PlayerTickEvent event){
-		EntityPlayer player=event.player;
+		EntityPlayer player = event.player;
 		IItemHandler inv = player.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
 		
-		// Scan the player's inventory.
-		for (int i = 0; i < inv.getSlots(); i++) {
-			ItemStack target = inv.getStackInSlot(i);
-			
-			// Gem in inventory.
-			if (target.getItem() == gem) {
-				time--;
-				if (time <= 0) {
-					time = DELAY;
-					repair(player);
-				}
+		// Gem in inventory.
+		if (player.inventory.hasItemStack(new ItemStack(gem))) {
+			System.out.println("hello");
+			time--;
+			if (time <= 0) {
+				time = DELAY;
+				repair(player);
 			}
-		}			
+		}		
 	}
 	
 	private void repair(EntityPlayer player) {
@@ -62,7 +59,7 @@ public class TickHandler {
 					// Repair.
 					if (target.isItemDamaged()) {
 						target.setItemDamage(target.getItemDamage() - 1);
-						return; // Only repair one item at a time.
+						if (GemConfig.singleItem) return; // Only repair one item at a time.
 					}
 				}
 			}

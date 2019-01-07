@@ -21,4 +21,10 @@ public class GemConfig {
 	})
 	@Name("Harder Recipe")
 	public static boolean hardRecipe = false;
+	
+	@Comment({
+		"Whether to repair a single item at a time or everything at once."
+	})
+	@Name("Single item mode")
+	public static boolean singleItem = true;
 }
