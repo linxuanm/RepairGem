@@ -1,15 +1,14 @@
 package cn.davidma.repairgem.handler;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
+import cn.davidma.repairgem.Main;
 import cn.davidma.repairgem.reference.GemConfig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -22,9 +21,9 @@ public class TickHandler {
 	Item gem;
 	int time;
 	
-	public TickHandler(Item inGem, int inDelay) {
-		gem = inGem;
-		DELAY = inDelay;
+	public TickHandler() {
+		gem = Main.gem;
+		DELAY = GemConfig.cooldown;
 		time = DELAY;
 		
 	}
@@ -36,7 +35,6 @@ public class TickHandler {
 		
 		// Gem in inventory.
 		if (player.inventory.hasItemStack(new ItemStack(gem))) {
-			System.out.println("hello");
 			time--;
 			if (time <= 0) {
 				time = DELAY;

@@ -12,7 +12,7 @@ public class GemConfig {
 		"The cooldown (in ticks) of each repair; smaller value means faster repair."
 	})
 	@Name("Cooldown ticks")
-	@RangeInt(min=0)
+	@RangeInt(min=1)
 	public static int cooldown = 40;
 	
 	@Comment({

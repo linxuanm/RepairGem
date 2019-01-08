@@ -56,7 +56,8 @@ public class Main {
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
-		MinecraftForge.EVENT_BUS.register(new TickHandler(gem, GemConfig.cooldown));
+		MinecraftForge.EVENT_BUS.register(new TickHandler());
+		
 		addRecipe("gem", new ItemStack(gem), new Object[] {"CSC", "EME", "CSC", 'C', corner, 'S', side, 'E', edge, 'M', middle});
 		addRecipe("rotated_gem", new ItemStack(gem), new Object[] {"CEC", "SMS", "CEC", 'C', corner, 'S', side, 'E', edge, 'M', middle});
 	}
