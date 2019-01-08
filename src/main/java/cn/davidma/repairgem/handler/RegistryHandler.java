@@ -1,5 +1,6 @@
-package cn.davidma.repairgem;
+package cn.davidma.repairgem.handler;
 
+import cn.davidma.repairgem.Main;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -16,6 +17,6 @@ public class RegistryHandler {
 	
 	@SubscribeEvent
 	public static void onModelRegistry(ModelRegistryEvent event) {
-		((Model)Main.gem).registerModels();
+		Main.gem.registerModels();
 	}
 }

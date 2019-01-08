@@ -1,8 +1,8 @@
-package cn.davidma.repairgem;
+package cn.davidma.repairgem.handler;
 
 import java.util.ArrayList;
 
-import cn.davidma.repairgem.config.GemConfig;
+import cn.davidma.repairgem.reference.GemConfig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.MobEffects;
@@ -17,7 +17,7 @@ import net.minecraftforge.items.IItemHandler;
 
 public class TickHandler {
 	
-	int DELAY = 40;
+	int DELAY;
 	
 	Item gem;
 	int time;

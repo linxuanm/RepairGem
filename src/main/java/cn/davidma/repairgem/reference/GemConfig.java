@@ -1,6 +1,5 @@
-package cn.davidma.repairgem.config;
+package cn.davidma.repairgem.reference;
 
-import cn.davidma.repairgem.Reference;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;
 import net.minecraftforge.common.config.Config.Name;

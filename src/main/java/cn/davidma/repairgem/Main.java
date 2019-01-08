@@ -1,7 +1,9 @@
 package cn.davidma.repairgem;
 
-import cn.davidma.repairgem.config.GemConfig;
+import cn.davidma.repairgem.handler.TickHandler;
 import cn.davidma.repairgem.proxy.CommonProxy;
+import cn.davidma.repairgem.reference.GemConfig;
+import cn.davidma.repairgem.reference.Reference;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -20,7 +22,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @Mod(modid=Reference.MOD_ID, name=Reference.NAME, version=Reference.VERSION)
 public class Main {
 	
-	public static Item gem;
+	public static Gem gem;
 	
 	// Custom crafting recipe.
 	public static Object corner;
@@ -37,6 +39,8 @@ public class Main {
 	@EventHandler
 	public static void PreInit(FMLPreInitializationEvent event) {
 		gem = new Gem("gem");
+		
+		// Recipes.
 		if (GemConfig.hardRecipe) {
 			corner = Items.END_CRYSTAL;
 			middle = Items.NETHER_STAR;

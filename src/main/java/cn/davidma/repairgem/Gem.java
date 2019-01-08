@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
-public class Gem extends ItemSimpleFoiled implements Model {
+public class Gem extends ItemSimpleFoiled {
 	
 	public Gem(String name) {
 		setUnlocalizedName(name);
@@ -36,7 +36,6 @@ public class Gem extends ItemSimpleFoiled implements Model {
 		}
 	}
 	
-	@Override
 	public void registerModels() {
 		Main.proxy.registerItemRenderer(this, 0, "inventory");
 	}
