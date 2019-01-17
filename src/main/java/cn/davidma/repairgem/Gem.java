@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import cn.davidma.repairgem.reference.GemConfig;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
@@ -23,6 +24,7 @@ public class Gem extends ItemSimpleFoiled {
 		setRegistryName(name);
 		setCreativeTab(CreativeTabs.MISC);
 		setMaxStackSize(1);
+		setMaxDamage(GemConfig.durability);
 	}
 	
 	@Override

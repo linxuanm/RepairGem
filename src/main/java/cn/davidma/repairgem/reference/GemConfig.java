@@ -26,4 +26,10 @@ public class GemConfig {
 	})
 	@Name("Single item mode")
 	public static boolean singleItem = true;
+	
+	@Comment({
+		"Durability for the gem. Set this field to -1 to disable."
+	})
+	@Name("Gem Durability")
+	public static int durability = 8600;
 }

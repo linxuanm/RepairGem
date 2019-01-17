@@ -30,7 +30,11 @@ public class TickHandler {
 	
 	@SubscribeEvent
 	public void onPlayerTick(TickEvent.PlayerTickEvent event){
-		EntityPlayer player = event.player;
+		EntityPlayer player = event.player; 
+		
+		// A super important line which I forgot to add previously :(
+		if (player.world.isRemote) return;
+		
 		IItemHandler inv = player.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
 		
 		// Gem in inventory.
