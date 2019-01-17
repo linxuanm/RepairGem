@@ -45,8 +45,11 @@ public class TickHandler {
 				globalCooldown.put(name, globalCooldown.get(name) - 1);
 				if (currDelay <= 0) {
 					globalCooldown.put(name, GemConfig.cooldown);
-					if (repair(player)) stack.damageItem(1, player);
+					if (repair(player)) {
+						stack.damageItem(1, player);
+					}
 				}
+				return;
 			}
 		}	
 	}
