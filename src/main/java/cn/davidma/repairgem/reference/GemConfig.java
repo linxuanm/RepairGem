@@ -31,5 +31,5 @@ public class GemConfig {
 		"Durability for the gem. Set this field to -1 to disable."
 	})
 	@Name("Gem Durability")
-	public static int durability = 8600;
+	public static int durability = -1;
 }
