@@ -1,15 +1,13 @@
 package cn.davidma.repairgem;
 
-import cn.davidma.repairgem.handler.TickHandler;
-import cn.davidma.repairgem.proxy.CommonProxy;
+import cn.davidma.repairgem.item.Gem;
+import cn.davidma.repairgem.proxy.ServerProxy;
 import cn.davidma.repairgem.reference.GemConfig;
 import cn.davidma.repairgem.reference.Reference;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -34,11 +32,10 @@ public class Main {
 	public static Main instance;
 	
 	@SidedProxy(clientSide=Reference.CLIENT_PROXY, serverSide=Reference.COMMON_PROXY)
-	public static CommonProxy proxy;
+	public static ServerProxy proxy;
 	
 	@EventHandler
-	public static void PreInit(FMLPreInitializationEvent event) {
-		gem = new Gem("gem");
+	public static void preInit(FMLPreInitializationEvent event) {
 		
 		// Recipes.
 		if (GemConfig.hardRecipe) {
@@ -56,18 +53,17 @@ public class Main {
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
-		MinecraftForge.EVENT_BUS.register(new TickHandler());
-		
 		addRecipe("gem", new ItemStack(gem), new Object[] {"CSC", "EME", "CSC", 'C', corner, 'S', side, 'E', edge, 'M', middle});
 		addRecipe("rotated_gem", new ItemStack(gem), new Object[] {"CEC", "SMS", "CEC", 'C', corner, 'S', side, 'E', edge, 'M', middle});
 	}
 	
 	@EventHandler
-	public static void PostInit(FMLPostInitializationEvent event) {
+	public static void postInit(FMLPostInitializationEvent event) {
 		
 	}
 	
-	private static void addRecipe (String inName, ItemStack output, Object... input) {
+	private static void addRecipe(String inName, ItemStack output, Object... input) {
+		
 		// Right the new recipe loader is ridiculous.
 		ResourceLocation name = new ResourceLocation(Reference.MOD_ID, inName);
 		GameRegistry.addShapedRecipe(name, null, output, input);

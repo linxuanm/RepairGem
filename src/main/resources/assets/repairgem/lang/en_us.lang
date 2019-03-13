@@ -1,1 +1,4 @@
-item.gem.name=Repair Gem
+item.repairgem.gem.name=Repair Gem
+
+tooltip.repairgem.expanded_tooltip=Repair items in the holder's inventory.
+tooltip.repairgem.hold_shift="<Hold SHIFT>"
