@@ -58,7 +58,6 @@ public class Gem extends Item {
 		} else {
 			nbt.setInteger(COOLDOWN_TAG, cooldown - 1);
 		}
-		
 	}
 	
 	private static boolean repair(EntityPlayer player) {

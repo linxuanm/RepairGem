@@ -1,7 +1,6 @@
 package cn.davidma.repairgem;
 
 import cn.davidma.repairgem.item.Gem;
-import cn.davidma.repairgem.proxy.ServerProxy;
 import cn.davidma.repairgem.reference.GemConfig;
 import cn.davidma.repairgem.reference.Reference;
 import net.minecraft.init.Blocks;
@@ -11,7 +10,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -30,9 +28,6 @@ public class Main {
 	
 	@Instance
 	public static Main instance;
-	
-	@SidedProxy(clientSide=Reference.CLIENT_PROXY, serverSide=Reference.COMMON_PROXY)
-	public static ServerProxy proxy;
 	
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
